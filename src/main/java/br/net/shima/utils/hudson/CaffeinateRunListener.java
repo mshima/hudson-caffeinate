@@ -25,6 +25,7 @@ public class CaffeinateRunListener extends RunListener<AbstractBuild<?, ?>> {
 	public void onCompleted(AbstractBuild<?, ?> r, TaskListener listener) {
 		listener.getLogger().println("Canceling caffeined for name " + r.getId());
 		this.caffeinate.cancel(r.getId());
+		this.caffeinate.tinyCaffeinate();
 		super.onCompleted(r, listener);
 	}
 
