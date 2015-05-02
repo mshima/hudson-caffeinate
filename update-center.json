@@ -1,0 +1,30 @@
+updateCenter.post({
+  "id" : "caffeinate",
+  "plugins" : {
+    "caffeinate" : {
+      "name" : "caffeinate",
+      "type" : "optional",
+      "developers" : [ {
+      } ],
+      "labels" : [ "" ],
+      "groupId" : "br.net.shima.hudson.caffeinate",
+      "previousTimestamp" : "",
+      "previousVersion" : "",
+      "dependencies" : [ {
+        "name" : null,
+        "version" : null,
+        "optional" : true
+      } ],
+      "version" : "0.0.7",
+      "excerpt" : "",
+      "title" : "Hudson OSX Caffeinate plugin",
+      "url" : "https://bintray.com/artifact/download/marceloshima/maven/br/net/shima/hudson/caffeinate/hudson-caffeinate-plugin/0.0.7/hudson-caffeinate-plugin-0.0.7.hpi",
+      "wiki" : "https://github.com/mshima/hudson-caffeinate/wiki",
+      "scm" : "https://github.com/mshima/hudson-caffeinate.git",
+      "releaseTimestamp" : "2015-03-02T16:28:30Z",
+      "buildDate" : "Mar 2, 2015"
+    }
+  },
+  "updateCenterVersion" : "1",
+  "connectionCheckUrl" : "http://www.google.com/"
+});
