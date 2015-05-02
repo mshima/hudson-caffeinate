@@ -1,0 +1,174 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>br.net.shima.utils.hudson</groupId>
+	<artifactId>caffeinate-hudson-plugin</artifactId>
+	<version>0.0.4-SNAPSHOT</version>
+	<name>Caffeinate</name>
+	<packaging>hpi</packaging>
+
+	<parent>
+		<groupId>org.eclipse.hudson.plugins</groupId>
+		<artifactId>hudson-plugin-parent</artifactId>
+		<!-- which version of Hudson is this plugin built against? -->
+		<version>3.1.2</version>
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<svn.base>outros/hudson-caffeinate</svn.base>
+		<project.scm.id>svn-shima</project.scm.id>
+	</properties>
+
+	<scm>
+		<developerConnection>scm:svn:svn://svn.shima.net.br/${svn.base}/trunk</developerConnection>
+	</scm>
+
+	<dependencies>
+		<dependency>
+			<groupId>br.net.shima.utils</groupId>
+			<artifactId>java-caffeinate</artifactId>
+			<version>0.0.7</version>
+		</dependency>
+	</dependencies>
+
+	<distributionManagement>
+		<repository>
+			<id>shima</id>
+			<name>Nexus shima repo</name>
+			<url>http://build.shima.net.br:8080/nexus/content/repositories/shima</url>
+		</repository>
+	</distributionManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.6</version>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<goals>deploy</goals>
+					<autoversionsubmodules>true</autoversionsubmodules>
+					<tagBase>
+						svn://svn.shima.net.br/${svn.base}/tags
+					</tagBase>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.9</version>
+				<configuration>
+					<downloadSources>true</downloadSources>
+					<downloadJavadocs>false</downloadJavadocs>
+					<!-- <wtpversion>2.0</wtpversion> -->
+					<lineLength>120</lineLength>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.8.1</version>
+				<configuration>
+					<repositoryId>shima</repositoryId>
+				</configuration>
+			</plugin>
+		</plugins>
+		<!-- <pluginManagement> -->
+		<!-- <plugins> -->
+		<!-- This plugin's configuration is used to store Eclipse m2e settings 
+			only. It has no influence on the Maven build itself. -->
+		<!-- <plugin> -->
+		<!-- <groupId>org.eclipse.m2e</groupId> -->
+		<!-- <artifactId>lifecycle-mapping</artifactId> -->
+		<!-- <version>1.0.0</version> -->
+		<!-- <configuration> -->
+		<!-- <lifecycleMappingMetadata> -->
+		<!-- <pluginExecutions> -->
+		<!-- <pluginExecution> -->
+		<!-- <pluginExecutionFilter> -->
+		<!-- <groupId>org.eclipse.hudson.tools</groupId> -->
+		<!-- <artifactId>maven-hpi-plugin</artifactId> -->
+		<!-- <versionRange>[3.0.2,)</versionRange> -->
+		<!-- <goals> -->
+		<!-- <goal>test-hpl</goal> -->
+		<!-- <goal>resolve-test-dependencies</goal> -->
+		<!-- </goals> -->
+		<!-- </pluginExecutionFilter> -->
+		<!-- <action> -->
+		<!-- <ignore></ignore> -->
+		<!-- </action> -->
+		<!-- </pluginExecution> -->
+		<!-- </pluginExecutions> -->
+		<!-- </lifecycleMappingMetadata> -->
+		<!-- </configuration> -->
+		<!-- </plugin> -->
+		<!-- </plugins> -->
+		<!-- </pluginManagement> -->
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.eclipse.hudson.tools
+										</groupId>
+										<artifactId>
+											maven-hpi-plugin
+										</artifactId>
+										<versionRange>
+											[3.0.2,)
+										</versionRange>
+										<goals>
+											<goal>test-hpl</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<repositories>
+		<repository>
+			<id>bintray-marceloshima-maven</id>
+			<name>bintray</name>
+			<url>http://dl.bintray.com/marceloshima/maven</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+</project>
