@@ -112,6 +112,7 @@
 							<goal>deploy-file</goal>
 						</goals>
 						<configuration>
+							<repositoryId>bintray</repositoryId>
 							<file>target/update_info/update-center.json</file>
 							<groupId>${project.groupId}</groupId>
 							<artifactId>update-center</artifactId>
@@ -121,7 +122,6 @@
 					</execution>
 				</executions>
 				<configuration>
-					<files>target/update-center.json</files>
 				</configuration>
 			</plugin>
 			<plugin>
