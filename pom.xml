@@ -28,7 +28,6 @@
 		<bintray-user>marceloshima</bintray-user>
 		<github-user>mshima</github-user>
 		<repository-name>http://dl.bintray.com/${bintray-user}/maven</repository-name>
-		<project-base-url />
 
 	</properties>
 
@@ -105,6 +104,22 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-deploy-plugin</artifactId>
 				<version>2.8.1</version>
+				<executions>
+					<execution>
+						<id>deploy1</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>deploy-file</goal>
+						</goals>
+						<configuration>
+							<file>target/update_info/update-center.json</file>
+							<!-- <groupId>${project.groupId}</groupId> -->
+							<!-- <artifactId>update-center</artifactId> -->
+							<!-- <version>${project.version}</version> -->
+							<!-- <packaging>json</packaging> -->
+						</configuration>
+					</execution>
+				</executions>
 				<configuration>
 					<files>target/update-center.json</files>
 				</configuration>
@@ -132,27 +147,13 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-install-plugin</artifactId>
-				<version>2.4</version>
-				<executions>
-					<execution>
-						<id>install1</id>
-						<phase>package</phase>
-						<goals>
-							<goal>install-file</goal>
-						</goals>
-						<configuration>
-							<file>target/update_info/update-center.json</file>
-							<groupId>${project.groupId}</groupId>
-							<artifactId>update-center</artifactId>
-							<version>${project.version}</version>
-							<packaging>json</packaging>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+			<!-- <plugin> -->
+			<!-- <groupId>org.apache.maven.plugins</groupId> -->
+			<!-- <artifactId>maven-install-plugin</artifactId> -->
+			<!-- <version>2.4</version> -->
+			<!-- <executions> -->
+			<!-- </executions> -->
+			<!-- </plugin> -->
 		</plugins>
 		<pluginManagement>
 			<plugins>
