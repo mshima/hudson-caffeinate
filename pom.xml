@@ -28,6 +28,7 @@
 		<bintray-user>marceloshima</bintray-user>
 		<github-user>mshima</github-user>
 		<repository-name>http://dl.bintray.com/${bintray-user}/maven</repository-name>
+		<bintray-repo>https://api.bintray.com/maven/${bintray-user}/maven/${project.artifactId}</bintray-repo>
 
 	</properties>
 
@@ -49,7 +50,7 @@
 	<distributionManagement>
 		<repository>
 			<id>bintray</id>
-			<url>https://api.bintray.com/maven/${bintray-user}/maven/${project.artifactId}</url>
+			<url>${bintray-repo}</url>
 		</repository>
 	</distributionManagement>
 
@@ -113,6 +114,8 @@
 						</goals>
 						<configuration>
 							<repositoryId>bintray</repositoryId>
+							<url>${bintray-repo}</url>
+
 							<file>target/update_info/update-center.json</file>
 							<groupId>${project.groupId}</groupId>
 							<artifactId>update-center</artifactId>
