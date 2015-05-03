@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -20,10 +21,15 @@
 	</issueManagement>
 
 	<properties>
+		<groupId-path>/br/net/shima/hudson/caffeinate</groupId-path>
+		<hudson-plugin-name>caffeinate</hudson-plugin-name>
+
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<bintray-user>marceloshima</bintray-user>
 		<github-user>mshima</github-user>
+		<repository-name>http://dl.bintray.com/${bintray-user}/maven</repository-name>
+		<project-base-url></project-base-url>
 
 	</properties>
 
@@ -104,6 +110,50 @@
 					<files>target/update-center.json</files>
 				</configuration>
 			</plugin>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.7</version>
+				<executions>
+					<execution>
+						<id>copy-resources</id>
+						<!-- here the phase you need -->
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/update_info</outputDirectory>
+							<resources>
+								<resource>
+									<directory>src/main/update_info</directory>
+									<filtering>true</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<version>2.4</version>
+				<executions>
+					<execution>
+						<id>install1</id>
+						<phase>package</phase>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<configuration>
+							<file>target/update_info/update-center.json</file>
+							<groupId>${project.groupId}</groupId>
+							<artifactId>update-center</artifactId>
+							<version>${project.version}</version>
+							<packaging>json</packaging>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 		<pluginManagement>
 			<plugins>
@@ -150,7 +200,7 @@
 		<repository>
 			<id>bintray-marceloshima-maven</id>
 			<name>bintray</name>
-			<url>http://dl.bintray.com/${bintray-user}/maven</url>
+			<url>${repository-name}</url>
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>

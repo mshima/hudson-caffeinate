@@ -1,0 +1,30 @@
+updateCenter.post({
+  "id" : "${hudson-plugin-name}",
+  "plugins" : {
+    "${hudson-plugin-name}" : {
+      "name" : "${hudson-plugin-name}",
+      "type" : "optional",
+      "developers" : [ {
+      } ],
+      "labels" : [ "" ],
+      "groupId" : "${project.groupId}",
+      "previousTimestamp" : "",
+      "previousVersion" : "",
+      "dependencies" : [ {
+        "name" : null,
+        "version" : null,
+        "optional" : true
+      } ],
+      "version" : "${project.version}",
+      "excerpt" : "",
+      "title" : "${project.name}",
+      "url" : "${repository-name}${groupId-path}/${project.artifactId}/${project.version}/${project.artifactId}-${project.version}.hpi",
+      "wiki" : "${project.scm.url}/wiki",
+      "scm" : "${project.scm.url}.git",
+      "releaseTimestamp" : "2015-03-02T16:28:30Z",
+      "buildDate" : "Mar 2, 2015"
+    }
+  },
+  "updateCenterVersion" : "1",
+  "connectionCheckUrl" : "http://www.google.com/"
+});
