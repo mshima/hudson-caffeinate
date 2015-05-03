@@ -113,9 +113,9 @@
 						</goals>
 						<configuration>
 							<file>target/update_info/update-center.json</file>
-							<!-- <groupId>${project.groupId}</groupId> -->
-							<!-- <artifactId>update-center</artifactId> -->
-							<!-- <version>${project.version}</version> -->
+							<groupId>${project.groupId}</groupId>
+							<artifactId>update-center</artifactId>
+							<version>${project.version}</version>
 							<!-- <packaging>json</packaging> -->
 						</configuration>
 					</execution>
