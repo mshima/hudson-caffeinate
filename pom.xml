@@ -43,7 +43,7 @@
 		<dependency>
 			<groupId>br.net.shima.utils</groupId>
 			<artifactId>java-caffeinate</artifactId>
-			<version>0.1.2-SNAPSHOT</version>
+			<version>0.1.2</version>
 		</dependency>
 	</dependencies>
 
