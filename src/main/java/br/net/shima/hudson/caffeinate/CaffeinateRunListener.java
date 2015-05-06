@@ -4,12 +4,12 @@ import hudson.Extension;
 import hudson.model.TaskListener;
 import hudson.model.AbstractBuild;
 import hudson.model.listeners.RunListener;
-import br.net.shima.utils.caffeinate.CaffeinateThread;
+import br.net.shima.utils.caffeinate.CaffeinateRunner;
 
 @Extension
 public class CaffeinateRunListener extends RunListener<AbstractBuild<?, ?>> {
 
-	private CaffeinateThread caffeinate = new CaffeinateThread();
+	private CaffeinateRunner caffeinate = new CaffeinateRunner();
 
 	public CaffeinateRunListener() {
 	}

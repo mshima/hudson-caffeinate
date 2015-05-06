@@ -1,4 +1,9 @@
 <j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
-        ${it.caffeinate()}
+			<table width="100%">
+				<tr>
+					<td colspan="2" class="footerArea"><div id="footer"></div></td>
+					<td id="footer-right-panel" class="footerArea">${it.caffeinate()}</td>
+				</tr>
+			</table>
 </j:jelly>
 
