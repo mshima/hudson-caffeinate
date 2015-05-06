@@ -1,4 +1,4 @@
-package br.net.shima.utils.hudson;
+package br.net.shima.hudson.caffeinate;
 
 import hudson.Extension;
 import hudson.model.TaskListener;
