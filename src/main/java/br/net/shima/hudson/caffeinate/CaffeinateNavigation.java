@@ -15,7 +15,6 @@ public class CaffeinateNavigation extends PageDecorator {
 
 	public String caffeinate() {
 		caffeinate.smallCaffeinate();
-		System.out.println("Caffeinate");
 		return "Caffeinate";
 	}
 
