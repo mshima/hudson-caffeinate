@@ -36,6 +36,7 @@
 		<url>https://github.com/${github-user}/${project.artifactId}</url>
 		<connection>scm:git:git://github.com/${github-user}/${project.artifactId}.git</connection>
 		<developerConnection>scm:git:git@github.com:${github-user}/${project.artifactId}.git</developerConnection>
+		<tag>master</tag>
 	</scm>
 
 	<dependencies>
