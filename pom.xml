@@ -9,7 +9,7 @@
 
 	<groupId>br.net.shima.hudson.caffeinate</groupId>
 	<artifactId>caffeinate-hudson-plugin</artifactId>
-	<version>0.0.17</version>
+	<version>0.0.17-SNAPSHOT</version>
 	<name>Hudson OSX caffeinate Plugin</name>
 	<packaging>hpi</packaging>
 	<url>https://github.com/${github-user}/github-maven-example</url>
