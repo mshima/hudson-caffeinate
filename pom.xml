@@ -36,7 +36,6 @@
 		<url>https://github.com/${github-user}/${project.artifactId}</url>
 		<connection>scm:git:git://github.com/${github-user}/${project.artifactId}.git</connection>
 		<developerConnection>scm:git:git@github.com:${github-user}/${project.artifactId}.git</developerConnection>
-		<tag>HEAD</tag>
 	</scm>
 
 	<dependencies>
@@ -72,6 +71,7 @@
 					<goals>deploy</goals>
 					<autoversionsubmodules>true</autoversionsubmodules>
 					<pushChanges>true</pushChanges>
+					<branchName>master</branchName>
 				</configuration>
 			</plugin>
 			<plugin>
